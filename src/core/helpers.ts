@@ -1,5 +1,5 @@
 export function build_tree_nodes(data:any):any{
-    console.log(data)
+   
     const nodes = [];
 
     const shop = {

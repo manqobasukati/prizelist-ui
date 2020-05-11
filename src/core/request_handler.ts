@@ -1,15 +1,7 @@
 export async function get_store_branches(data: any): Promise<any> {
+  console.log(data)
   let resp = {};
-  // const params = {
-  //     method: 'POST',
-  //     url: Config.network_url + BACKEND_SERVICES.get_word_freq_response,
-  //     headers: {
-  //         'Content-Type': 'application/json',
-
-  //     },
-  //     body: JSON.stringify(data),
-  // };
-
+ 
   await fetch(`http://localhost:8000/shops/${data.shop_id}/branches`)
     .then(response => response.json())
     .then(data => {
@@ -48,8 +40,7 @@ export async function get_branch_prizelist(data: any) {
 
 
 export async function  upload_branch_prize_list(data:any) {
- console.log(data)
-  const file = data.file;
+ 
   const formData = new FormData()
   formData.append('prize_list', data.file);
   formData.append('branch', data.branch_id);
@@ -70,4 +61,6 @@ export async function  upload_branch_prize_list(data:any) {
     console.error(error)
   })
 }
+
+
 

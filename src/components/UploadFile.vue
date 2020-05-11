@@ -54,7 +54,7 @@ export default Vue.extend({
         this.file = file;
     },
     async upload_file(){
-        console.log(this.date_valid_to)
+       
         const data = {
           shop_id:this.$data.current_store,
           branch_id:this.$data.current_branch,

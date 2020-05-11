@@ -3,8 +3,8 @@ import { get_store_branches, get_branch_prizelist } from '../core/request_handle
 
 export const dashboard = Vue.extend({
   beforeRouteUpdate(to, from, next) {
-    this.$data.current_branch = Number(to.query.branch_id);
-    this.$data.current_store = Number(to.query.store_id);
+    this.$data.current_branch = Number(to.query.branch_id) || this.current_branch;
+    this.$data.current_store = Number(to.query.store_id) || this.current_store;
     
     next();
   },
@@ -26,8 +26,9 @@ export const dashboard = Vue.extend({
         const data = {
           shop_id: this.current_store
         };
+        console.log('In mixin', data)
         this.store_branches = await get_store_branches(data);
-        console.log(this.store_branches);
+       
       },
 
     },
