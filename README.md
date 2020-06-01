@@ -1,6 +1,8 @@
 # Hamba (rider-hamba-ui)
 
-connecting riders with drivers
+A platform that allows food retail stores to upload their prize list so that users can see the latest prizes for stores as well as orders.
+
+Project is still in progress
 
 ## Install the dependencies
 ```bash

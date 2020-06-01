@@ -5,12 +5,11 @@ export const dashboard = Vue.extend({
   beforeRouteUpdate(to, from, next) {
     this.$data.current_branch = Number(to.query.branch_id) || this.current_branch;
     this.$data.current_store = Number(to.query.store_id) || this.current_store;
-    
     next();
   },
   created() {
-    this.current_branch = Number(this.$route.query.branch_id);
-    this.current_store = Number(this.$route.query.store_id);
+    this.current_branch = Number(this.$route.query.branch_id) || this.current_branch;
+    this.current_store = Number(this.$route.query.store_id) || this.current_store;
     this.get_store_branches();
   },
 

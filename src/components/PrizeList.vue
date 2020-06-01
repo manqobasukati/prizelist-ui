@@ -3,7 +3,13 @@
     <div class="q-gutter-md">
       <div class="text-h4">{{ get_branch_name() }} prize list</div>
       <q-separator inset />
-      <q-markup-table>
+      <!-- <q-table
+        title="Prize list"
+        row-key="category"
+        :columns="columns"
+        :data="prodcut_list" -->
+      />
+      <q-markup-table >
         <thead>
           <tr>
             <th class="text-left">Category</th>
@@ -36,7 +42,6 @@
 import Vue from 'vue';
 import mixins from 'vue-typed-mixins';
 
-
 import { dashboard } from 'src/mixins/dashboard.mixins';
 import {
   get_branch_prizelist,
@@ -45,13 +50,13 @@ import {
 
 export default Vue.extend({
   name: 'PrizeList',
-  mixins:[dashboard],
+  mixins: [dashboard],
   created() {
     this.get_prize_lists();
   },
-  beforeRouteUpdate(to,from,next){
-    this.get_prize_lists()
-    next()
+  beforeRouteUpdate(to, from, next) {
+    this.get_prize_lists();
+    next();
   },
   methods: {
     async get_prize_lists() {
@@ -70,12 +75,16 @@ export default Vue.extend({
           }
         }
       }
+
+     
     }
   },
   data() {
     return {
       current_prize_list: null as null | any,
       prize_lists: null as null | any,
+      prodcut_list: null as null | any,
+      
     };
   }
 });
